@@ -60,7 +60,8 @@ export class TodoService {
     return todo;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} todo`;
+  remove(id: number): void {
+    this.findOne(id);
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 }
